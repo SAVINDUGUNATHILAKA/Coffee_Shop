@@ -2,6 +2,7 @@ const searchIcon = document.querySelector('#search-icon');
 const searchBox = document.querySelector('.search-box');
 const menuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('.navbar');
+const header = document.querySelector('header');
 
 // Toggle Search Box on Click
 if (searchIcon && searchBox) {
@@ -21,12 +22,17 @@ if (menuIcon && navbar) {
     };
 }
 
-// Close search box and navbar on scroll or click outside
+// Close search box and mobile menu on scroll, and add header shadow
 window.onscroll = () => {
     if (navbar) navbar.classList.remove('active');
     if (searchBox) searchBox.classList.remove('active');
+    
+    if (header) {
+        header.classList.toggle('shadow', window.scrollY > 50);
+    }
 };
 
+// Close search box when clicking outside
 document.onclick = (e) => {
     if (searchBox && !searchBox.contains(e.target) && e.target !== searchIcon) {
         searchBox.classList.remove('active');
