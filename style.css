@@ -414,7 +414,7 @@ header {
     color: var(--text-color);
     cursor: pointer;
     display: none;
-    transition: 0.3s ease;
+    */ transition: 0.3s ease;
     z-index: 100001;
 }
 
