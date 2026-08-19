@@ -164,7 +164,7 @@ if (checkoutBtn) {
             return;
         }
         const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-        alert(`☕ Thank you for ordering from Roasted Bean!\nTotal: Rs. ${totalPrice.toLocaleString()}\nYour fresh brews are being prepared.`);
+        alert(`☕ Thank you for ordering from The Daily Grind!\nTotal: Rs. ${totalPrice.toLocaleString()}\nYour fresh brews are being prepared.`);
         cart = [];
         renderCart();
         closeCart();
