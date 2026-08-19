@@ -1,3 +1,4 @@
+/* ==================== GOOGLE FONTS & RESET ==================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -11,12 +12,13 @@
 }
 
 :root {
-    --main-color: #bc9667;
-    --secondary-color: #edeae3;
-    --text-color: #1b1b1b;
-    --bg-color: #ffffff;
-    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --main-color: #e5a962;
+    --secondary-color: #ffdfc6;
+    --text-color: #fcfcfc;
+    --bg-color: #846b5e;
+    --box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
 }
+
 
 body {
     background-color: var(--bg-color);
@@ -34,7 +36,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 18px 10%;
-    background: var(--bg-color);
+    background: rgb(72, 38, 38);
     box-shadow: var(--box-shadow);
     transition: 0.4s ease;
 }
@@ -98,16 +100,72 @@ header {
     display: none;
     /* Hidden on desktop screens */
     transition: 0.3s ease;
+    z-index: 100001;
 }
 
 #menu-icon:hover {
     color: var(--main-color);
 }
 
+/* ==================== SEARCH BOX ==================== */
+.search-box {
+    position: absolute;
+    top: 115%;
+    right: -100%;
+    /* Hidden by default off the screen */
+    width: 280px;
+    background: var(--bg-color);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+}
+
+/* When active (toggled by clicking the search icon) */
+.search-box.active {
+    right: 10%;
+    /* Slides into view */
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    padding-right: 8px;
+}
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.search-box i {
+    font-size: 20px;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.search-box i:hover {
+    transform: scale(1.15);
+}
+
 /* ==================== RESPONSIVE (Mobile & Tablet) ==================== */
 @media (max-width: 880px) {
     header {
         padding: 16px 6%;
+    }
+
+    .search-box.active {
+        right: 6%;
+        width: 240px;
     }
 
     #menu-icon {
