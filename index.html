@@ -34,9 +34,11 @@
 
         <!-- Icons -->
         <div class="header-icon">
-
-            <!-- Cart Icon -->
-            <i class="bx bx-cart-alt" id="cart-icon"></i>
+            <!-- Cart Icon with Badge -->
+            <div class="cart-icon-wrapper" id="cart-icon-btn" title="Open Cart">
+                <i class="bx bx-cart-alt" id="cart-icon"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
 
             <!-- Search Icon -->
             <i class="bx bx-search" id="search-icon"></i>
@@ -47,6 +49,33 @@
             <input type="search" id="search-input" placeholder="Search...">
             <i class="bx bx-search"></i>
         </div>
+
+        <!-- Modern Shopping Cart Drawer -->
+        <div class="cart-drawer" id="cart-drawer">
+            <div class="cart-header">
+                <div class="cart-title">
+                    <i class="bx bx-coffee-togo"></i>
+                    <h3>Your Coffee Cart</h3>
+                </div>
+                <i class="bx bx-x" id="cart-close" title="Close Cart"></i>
+            </div>
+
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items rendered dynamically by JavaScript -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span class="total-price" id="cart-total-price">Rs. 0</span>
+                </div>
+                <p class="delivery-note"><i class="bx bx-check-circle"></i> Free delivery in Colombo on orders over Rs. 3,000</p>
+                <button class="btn checkout-btn" id="checkout-btn">
+                    Checkout Now <i class="bx bx-credit-card"></i>
+                </button>
+            </div>
+        </div>
+        <div class="cart-overlay" id="cart-overlay"></div>
     </header>
 
     <!-- Home Section -->
@@ -131,6 +160,333 @@
             <a href="#products" class="btn">Discover Our Flavors <i class="bx bx-right-arrow-alt"></i></a>
         </div>
     </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="section-title">
+            <span class="section-subtitle"><i class="bx bxs-coffee-bean"></i> World-Class Selection</span>
+            <h2>Our Handcrafted Coffee <span>Collection</span></h2>
+            <p>From prestigious single-origins worldwide to Sri Lanka's finest mountain-grown blends, brewed fresh for you.</p>
+        </div>
+
+        <!-- Sri Lankan Highlight Card Banner -->
+        <div class="sri-lanka-banner">
+            <div class="banner-badge">🇱🇰 Sri Lankan Signature Special</div>
+            <div class="banner-content">
+                <h3>Try Our Authentic Ceylon Spiced Brews</h3>
+                <p>Infused with world-renowned pure Ceylon Cinnamon and fresh hill-country dairy from Nuwara Eliya & Kandy highlands.</p>
+            </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="products-container">
+            <!-- Product 1: Ceylon Cinnamon Spiced Latte -->
+            <div class="product-box">
+                <div class="product-badge">🇱🇰 Sri Lanka Special</div>
+                <div class="product-img">
+                    <img src="img/ceylon-cinnamon-latte.jpg" alt="Ceylon Cinnamon Spiced Latte">
+                </div>
+                <div class="product-content">
+                    <div class="product-origin"><i class="bx bx-map-pin"></i> Sri Lanka • Ceylon Highlands</div>
+                    <h3>Ceylon Cinnamon Latte</h3>
+                    <p>Brewed with pure organic Ceylon cinnamon, rich espresso, and velvety steamed milk.</p>
+                    <div class="product-rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <span>5.0 (140+)</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">
+                            <span class="currency">Rs.</span>
+                            <span class="amount">1,150</span>
+                        </div>
+                        <button class="cart-btn" title="Add to Cart">
+                            <i class="bx bx-cart-add"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Ethiopian Yirgacheffe Espresso -->
+            <div class="product-box">
+                <div class="product-badge">Single Origin</div>
+                <div class="product-img">
+                    <img src="img/ethiopian-espresso.jpg" alt="Ethiopian Espresso">
+                </div>
+                <div class="product-content">
+                    <div class="product-origin"><i class="bx bx-map-pin"></i> Ethiopia • Yirgacheffe</div>
+                    <h3>Ethiopian Dark Espresso</h3>
+                    <p>Intense double-shot with floral jasmine notes and vibrant golden crema.</p>
+                    <div class="product-rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star-half"></i>
+                        <span>4.9 (95)</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">
+                            <span class="currency">Rs.</span>
+                            <span class="amount">850</span>
+                        </div>
+                        <button class="cart-btn" title="Add to Cart">
+                            <i class="bx bx-cart-add"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Highland Nuwara Eliya Cold Brew -->
+            <div class="product-box">
+                <div class="product-badge">🇱🇰 16hr Steeped</div>
+                <div class="product-img">
+                    <img src="img/highland-cold-brew.jpg" alt="Highland Cold Brew">
+                </div>
+                <div class="product-content">
+                    <div class="product-origin"><i class="bx bx-map-pin"></i> Sri Lanka • Nuwara Eliya</div>
+                    <h3>Highland Sweet Cold Brew</h3>
+                    <p>Slow-steeped high-altitude Arabica served over crystal ice with a swirl of fresh cream.</p>
+                    <div class="product-rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <span>5.0 (210)</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">
+                            <span class="currency">Rs.</span>
+                            <span class="amount">1,250</span>
+                        </div>
+                        <button class="cart-btn" title="Add to Cart">
+                            <i class="bx bx-cart-add"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4: Colombian Supremo Dark Mocha -->
+            <div class="product-box">
+                <div class="product-badge">Best Seller</div>
+                <div class="product-img">
+                    <img src="img/colombian-mocha.jpg" alt="Colombian Dark Mocha">
+                </div>
+                <div class="product-content">
+                    <div class="product-origin"><i class="bx bx-map-pin"></i> Colombia • Supremo</div>
+                    <h3>Colombian Chocolate Mocha</h3>
+                    <p>Decadent dark cocoa melted into bold espresso, crowned with whipped cream.</p>
+                    <div class="product-rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <span>4.9 (185)</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">
+                            <span class="currency">Rs.</span>
+                            <span class="amount">1,350</span>
+                        </div>
+                        <button class="cart-btn" title="Add to Cart">
+                            <i class="bx bx-cart-add"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5: Italian Velvet Cappuccino -->
+            <div class="product-box">
+                <div class="product-badge">Classic Roast</div>
+                <div class="product-img">
+                    <img src="img/cofee-cup.jpg" alt="Italian Cappuccino">
+                </div>
+                <div class="product-content">
+                    <div class="product-origin"><i class="bx bx-map-pin"></i> Italy • Milanese Roast</div>
+                    <h3>Italian Velvet Cappuccino</h3>
+                    <p>Equal parts rich espresso, steamed milk, and airy micro-foam with dusting of cocoa.</p>
+                    <div class="product-rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star-half"></i>
+                        <span>4.8 (120)</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">
+                            <span class="currency">Rs.</span>
+                            <span class="amount">950</span>
+                        </div>
+                        <button class="cart-btn" title="Add to Cart">
+                            <i class="bx bx-cart-add"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: Kandy Hill Spiced Affogato -->
+            <div class="product-box">
+                <div class="product-badge">🇱🇰 Dessert Special</div>
+                <div class="product-img">
+                    <img src="img/front view.jpg" alt="Affogato Delight">
+                </div>
+                <div class="product-content">
+                    <div class="product-origin"><i class="bx bx-map-pin"></i> Sri Lanka • Kandy Hill</div>
+                    <h3>Highland Vanilla Affogato</h3>
+                    <p>A scoop of artisanal vanilla bean gelato drowned in a shot of hot fresh espresso.</p>
+                    <div class="product-rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <span>5.0 (160)</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">
+                            <span class="currency">Rs.</span>
+                            <span class="amount">1,400</span>
+                        </div>
+                        <button class="cart-btn" title="Add to Cart">
+                            <i class="bx bx-cart-add"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials Section -->
+    <section class="customer" id="customer">
+        <div class="section-title">
+            <span class="section-subtitle"><i class="bx bxs-heart"></i> Customer Love</span>
+            <h2>What Our Coffee <span>Lovers Say</span></h2>
+            <p>Read genuine reviews from local coffee lovers and international travelers who visit our café.</p>
+        </div>
+
+        <div class="customer-container">
+            <!-- Review 1 -->
+            <div class="customer-box">
+                <div class="quote-icon"><i class="bx bxs-quote-left"></i></div>
+                <div class="customer-stars">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+                <p>"The Ceylon Cinnamon Spiced Latte is hands down the best coffee in Sri Lanka! The subtle kick of real cinnamon blended with silky espresso is unmatched."</p>
+                <div class="customer-profile">
+                    <div class="avatar-circle">DP</div>
+                    <div class="customer-details">
+                        <h4>Dilshan Perera</h4>
+                        <span>Colombo, Sri Lanka</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="customer-box">
+                <div class="quote-icon"><i class="bx bxs-quote-left"></i></div>
+                <div class="customer-stars">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+                <p>"I'm a barista from Paris and visited during my trip. Their single-origin Ethiopian roast and cold brews are world-class. Fantastic ambience and great value in Rs.!"</p>
+                <div class="customer-profile">
+                    <div class="avatar-circle">SL</div>
+                    <div class="customer-details">
+                        <h4>Sophie Laurent</h4>
+                        <span>Paris, France</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="customer-box">
+                <div class="quote-icon"><i class="bx bxs-quote-left"></i></div>
+                <div class="customer-stars">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+                <p>"The Nuwara Eliya Cold Brew is pure magic! A cozy atmosphere, super fast WiFi, and lovely staff. This has become my favorite daily workspace in town."</p>
+                <div class="customer-profile">
+                    <div class="avatar-circle">KJ</div>
+                    <div class="customer-details">
+                        <h4>Kavindi Jayawardena</h4>
+                        <span>Kandy, Sri Lanka</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Brand Column -->
+            <div class="footer-box brand-col">
+                <a href="#" class="logo">
+                    <img src="img/logo.jpeg" alt="Roasted Bean Logo">
+                </a>
+                <p>Brewing happiness every day with single-origin beans and authentic Sri Lankan spices. Visit us for an unforgettable cup.</p>
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" title="TikTok"><i class="bx bxl-tiktok"></i></a>
+                    <a href="#" title="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home"><i class="bx bx-chevron-right"></i> Home</a></li>
+                    <li><a href="#about"><i class="bx bx-chevron-right"></i> About Us</a></li>
+                    <li><a href="#products"><i class="bx bx-chevron-right"></i> Our Products</a></li>
+                    <li><a href="#customer"><i class="bx bx-chevron-right"></i> Reviews</a></li>
+                </ul>
+            </div>
+
+            <!-- Opening Hours & Locations -->
+            <div class="footer-box">
+                <h3>Our Café</h3>
+                <div class="contact-info">
+                    <p><i class="bx bx-map"></i> 45 Cinnamon Gardens, Colombo 07, Sri Lanka</p>
+                    <p><i class="bx bx-phone"></i> +94 11 234 5678</p>
+                    <p><i class="bx bx-envelope"></i> hello@roastedbean.lk</p>
+                    <p><i class="bx bx-time"></i> Mon - Sun: 7:00 AM - 11:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-box">
+                <h3>Join Coffee Club</h3>
+                <p>Subscribe for special discounts, Sri Lankan tasting events, and new roast alerts!</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! ☕');">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Roasted Bean Coffee Shop. Handcrafted with passion in Sri Lanka 🇱🇰.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
