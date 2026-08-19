@@ -1,88 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
-    font-family: cursive;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
     list-style: none;
     text-decoration: none;
 }
 
-
 :root {
     --main-color: #bc9667;
-    --secondary-color: #fff4db;
+    --secondary-color: #edeae3;
     --text-color: #1b1b1b;
     --bg-color: #ffffff;
-
-    --box-shadow: 2px 2px 10px 14px rgb(14 55 54 / 15%);
-
-}
-
-img {
-    width: 10%;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 body {
     background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
+/* ==================== HEADER ==================== */
 header {
     position: fixed;
-    width: 100%;
     top: 0;
     right: 0;
+    width: 100%;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid rgb(0, 0, 0);
-    padding: 28px 10%;
-    transition: 0.5s linear;
+    padding: 18px 10%;
     background: var(--bg-color);
+    box-shadow: var(--box-shadow);
+    transition: 0.4s ease;
 }
 
+/* ==================== LOGO ==================== */
 .logo img {
-    width: 60px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
 }
 
+/* ==================== NAVBAR LINKS ==================== */
 .navbar {
     display: flex;
+    align-items: center;
+    column-gap: 1rem;
 }
 
 .navbar a {
-    padding: 8px 17px;
-    color: var(--main-color);
-    font-size: 1.2rem;
+    padding: 8px 16px;
+    color: var(--text-color);
+    font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
+    border-radius: 6px;
+    transition: 0.3s ease;
 }
 
 .navbar a:hover {
     background-color: var(--secondary-color);
-    border-radius: 0.2rem;
-    transition: 0.5s all linear;
+    color: var(--main-color);
 }
 
+/* ==================== HEADER ICONS (Cart & Search) ==================== */
 .header-icon {
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 10000;
     display: flex;
     align-items: center;
-    column-gap: 0.8rem;
+    column-gap: 1.2rem;
 }
 
-.header-icon svg {
+.header-icon i {
+    font-size: 24px;
     color: var(--text-color);
     cursor: pointer;
     transition: 0.3s ease;
 }
 
-.header-icon svg:hover {
+.header-icon i:hover {
+    color: var(--main-color);
+    transform: translateY(-2px);
+}
+
+/* ==================== MOBILE MENU SVG ICON ==================== */
+#menu-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+    /* Hidden on desktop screens */
+    transition: 0.3s ease;
+}
+
+#menu-icon:hover {
     color: var(--main-color);
 }
 
-#menu-icon {
-    display: none;
+/* ==================== RESPONSIVE (Mobile & Tablet) ==================== */
+@media (max-width: 880px) {
+    header {
+        padding: 16px 6%;
+    }
+
+    #menu-icon {
+        display: block;
+        /* Shows on mobile */
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        /* Hidden off-screen */
+        width: 100%;
+        background: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.2rem;
+        padding: 24px 30px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.35s ease;
+    }
+
+    /* Activated via JavaScript when menu icon is clicked */
+    .navbar.active {
+        left: 0;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 10px;
+    }
 }
