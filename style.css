@@ -110,7 +110,7 @@ header {
 /* ==================== SEARCH BOX ==================== */
 .search-box {
     position: absolute;
-    top: 115%;
+    top: 105%;
     right: -100%;
     /* Hidden by default off the screen */
     width: 280px;
@@ -127,7 +127,7 @@ header {
 
 /* When active (toggled by clicking the search icon) */
 .search-box.active {
-    right: 10%;
+    right: 1%;
     /* Slides into view */
 }
 
